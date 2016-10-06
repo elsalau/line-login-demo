@@ -1,0 +1,20 @@
+<% if current_user%>
+  <div class="page-header">
+    <h1><%= "#{current_user.username}'s Profile" %></h1>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <ul class="list-unstyled list-group">
+        <li class="list-group-item"><%= image_tag "#{current_user.image_url}/large", alt: current_user.username %></li>
+        <li class="list-group-item"><strong>UID: </strong><%= current_user.uid %></li>
+        <li class="list-group-item"><strong>Name: </strong><%= current_user.username %></li>
+        <li class="list-group-item"><strong>Description: </strong><%= current_user.status_msg %></li>
+        <li class="list-group-item"><strong>Avatar URL: </strong><%= current_user.image_url %></li>
+        <li class="list-group-item"><strong>AccessToken: </strong><%= current_user.access_token %></li>
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <%= render 'welcome' %>
+<% end %>
+
